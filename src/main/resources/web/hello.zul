@@ -1,0 +1,51 @@
+<window title="Hello"
+        border="normal"
+        hflex="true"
+        vflex="true"
+        viewModel="@id('vm')@init('br.ufma.lsdi.cddedesktopdemo.HelloView')"
+        apply="org.zkoss.bind.BindComposer"
+        self="@{define(content)}">
+
+    <hbox vflex="true" hflex="true">
+        <panel hflex="true" vflex="true" style="margin-bottom:10px" title="Local Temperature" border="normal">
+            <caption iconSclass="z-icon-home"/>
+            <panelchildren>
+                <listbox model="@bind(vm.localTemperatures)"
+                         mold="paging" autopaging="true" vflex="true" hflex="true">
+                    <listhead>
+                        <listheader hflex="min" label="Value" />
+                        <listheader hflex="min" label="Date" />
+                    </listhead>
+                    <template name="model" var="item">
+                        <listitem>
+                            <listcell label="@load(item.value)" />
+                            <listcell label="@load(item.date)" />
+                        </listitem>
+                    </template>
+                </listbox>
+                <button onClick="@command('ok')">OK</button>
+            </panelchildren>
+        </panel>
+        <panel hflex="true" vflex="true" style="margin-bottom:10px" title="Remote Temperature" border="normal">
+            <caption iconSclass="z-icon-home"/>
+            <panelchildren>
+                <listbox model="@bind(vm.remoteTemperatures)"
+                         mold="paging" autopaging="true" vflex="true" hflex="true">
+                    <listhead>
+                        <listheader hflex="min" label="Value" />
+                        <listheader hflex="min" label="Date" />
+                    </listhead>
+                    <template name="model" var="item">
+                        <listitem>
+                            <listcell label="@load(item.value)" />
+                            <listcell label="@load(item.date)" />
+                        </listitem>
+                    </template>
+                </listbox>
+                <button onClick="@command('ok')">OK</button>
+            </panelchildren>
+        </panel>
+    </hbox>
+
+
+</window>
