@@ -28,7 +28,7 @@ public class CddeDesktopDemoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Connection con = ConnectionFactory.createConnection();
         con.setClientId("jeancomp");
-        con.setHost("192.168.0.7");
+        con.setHost("192.168.1.106");
         con.connect();
 
         CDDL cddl = CDDL.getInstance();
